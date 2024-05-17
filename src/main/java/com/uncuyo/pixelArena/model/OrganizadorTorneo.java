@@ -2,6 +2,8 @@ package com.uncuyo.pixelArena.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,8 +11,9 @@ import javax.persistence.Table;
 @Table(name = "organizadordetorneos")
 public class OrganizadorTorneo {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "legajo")
-    private String legajo;
+    private long legajo;
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "apellido")
@@ -19,24 +22,22 @@ public class OrganizadorTorneo {
     private String email;
     @Column(name = "numteléfono")
     private int numtel;
+    @Column(name = "activo")
+    private boolean activo;
 
     public OrganizadorTorneo() {
     }
 
-    public OrganizadorTorneo(String legajo, String nombre, String apellido, String email, int numtel) {
-        this.legajo = legajo;
+    public OrganizadorTorneo(String nombre, String apellido, String email, int numtel) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.numtel = numtel;
+        this.activo = true;
     }
 
-    public String getLegajo() {
+    public long getLegajo() {
         return legajo;
-    }
-
-    public void setLegajo(String legajo) {
-        this.legajo = legajo;
     }
 
     public String getNombre() {
@@ -71,8 +72,17 @@ public class OrganizadorTorneo {
         this.numtel = numtel;
     }
 
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
     @Override
     public String toString() {
-        return "OrganizadorTorneo{" + "legajo=" + legajo + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", numtel=" + numtel + '}';
-    }
+        return "OrganizadorTorneo{" + "legajo=" + legajo + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", numtel=" + numtel + ", activo=" + activo + '}';
+    }  
+    
 }

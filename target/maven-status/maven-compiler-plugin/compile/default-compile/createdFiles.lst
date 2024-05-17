@@ -9,6 +9,7 @@ com\uncuyo\pixelArena\model\Premio.class
 com\uncuyo\pixelArena\model\Usuario.class
 com\uncuyo\pixelArena\dao\JuegoDAO.class
 com\uncuyo\pixelArena\model\AdministradorTorneo.class
+com\uncuyo\pixelArena\dao\OrganizadorTorneoDAO.class
 com\uncuyo\pixelArena\dao\DAO.class
 com\uncuyo\pixelArena\dao\EmpresaDAO.class
 com\uncuyo\pixelArena\model\Rol.class
