@@ -18,13 +18,6 @@ public class RolDAO implements DAO<Rol>{
     static {
         emf = Persistence.createEntityManagerFactory("Persistencia");
     }
-    
-    public static void main(String[] args) {
-        RolDAO rd = new RolDAO();
-        Rol rolmodificar = rd.buscarPorId(2);
-        rolmodificar.setRol("Jugador");
-        rd.modificar(rolmodificar);
-    }
 
     @Override
     public void insertar(Rol rol) {
