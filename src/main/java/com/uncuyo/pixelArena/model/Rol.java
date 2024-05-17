@@ -2,6 +2,8 @@ package com.uncuyo.pixelArena.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,6 +11,7 @@ import javax.persistence.Table;
 @Table(name = "rol")
 public class Rol {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
     @Column(name = "rol")
@@ -17,17 +20,12 @@ public class Rol {
     public Rol() {
     }
 
-    public Rol(int id, String rol) {
-        this.id = id;
+    public Rol(String rol) {
         this.rol = rol;
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getRol() {

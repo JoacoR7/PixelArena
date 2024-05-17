@@ -1,4 +1,6 @@
+C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\dao\OrganizadorTorneoDAO.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\dao\DAO.java
+C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\dao\RolDAO.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\testing\Test.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\model\OrganizacionTorneo.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\model\Premio.java
@@ -10,8 +12,10 @@ C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pi
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\model\PremioTorneo.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\model\Empresa.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\dao\JuegoDAO.java
+C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\dao\ModeradorDAO.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\model\Juego.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\dao\PremioDAO.java
+C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\dao\UsuarioDAO.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\model\Rol.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\model\Torneo.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\model\ParticipacionUsuario.java

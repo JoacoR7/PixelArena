@@ -5,6 +5,8 @@ com\uncuyo\pixelArena\model\PremioTorneo.class
 com\uncuyo\pixelArena\model\ParticipacionUsuario.class
 com\uncuyo\pixelArena\model\Empresa.class
 com\uncuyo\pixelArena\model\OrganizacionTorneo.class
+com\uncuyo\pixelArena\dao\UsuarioDAO.class
+com\uncuyo\pixelArena\dao\RolDAO.class
 com\uncuyo\pixelArena\model\Premio.class
 com\uncuyo\pixelArena\model\Usuario.class
 com\uncuyo\pixelArena\dao\JuegoDAO.class
