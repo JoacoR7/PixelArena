@@ -3,13 +3,18 @@ package com.uncuyo.pixelArena.model;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "torneo")
 public class Torneo {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "númerotorneo")
     private int numTorneo;
     @Column(name = "nombre")
@@ -22,14 +27,14 @@ public class Torneo {
     private Date fechaFinalTorneo;
     @Column(name = "costoinscripción")
     private double costoInscripcionTorneo;
+    @OneToOne(fetch = FetchType.LAZY)
     @Column(name = "idjuego")
     private String idJuego;
 
     public Torneo() {
     }
 
-    public Torneo(int numTorneo, String nombreTorneo, String descripcionTorneo, Date fechaInicioTorneo, Date fechaFinalTorneo, double costoInscripcionTorneo, String idJuego) {
-        this.numTorneo = numTorneo;
+    public Torneo(String nombreTorneo, String descripcionTorneo, Date fechaInicioTorneo, Date fechaFinalTorneo, double costoInscripcionTorneo, String idJuego) {
         this.nombreTorneo = nombreTorneo;
         this.descripcionTorneo = descripcionTorneo;
         this.fechaInicioTorneo = fechaInicioTorneo;
@@ -40,10 +45,6 @@ public class Torneo {
 
     public int getNumTorneo() {
         return numTorneo;
-    }
-
-    public void setNumTorneo(int numTorneo) {
-        this.numTorneo = numTorneo;
     }
 
     public String getNombreTorneo() {
