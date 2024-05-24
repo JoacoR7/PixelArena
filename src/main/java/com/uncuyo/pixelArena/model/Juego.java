@@ -22,7 +22,7 @@ public class Juego {
     @Column(name = "nombre")
     private String nombre;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idempresa")
     private Empresa empresa;
 

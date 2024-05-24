@@ -3,10 +3,7 @@
   <persistence-unit name="Persistencia">
     <class>com.uncuyo.pixelArena.model.Empresa</class>
     <class>com.uncuyo.pixelArena.model.Juego</class>
-    <class>com.uncuyo.pixelArena.model.Premio</class>
-    <class>com.uncuyo.pixelArena.model.OrganizadorTorneo</class>
-    <class>com.uncuyo.pixelArena.model.Usuario</class>
-    <class>com.uncuyo.pixelArena.model.Rol</class>
+    <class>com.uncuyo.pixelArena.model.Torneo</class>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
       <!-- DB Driver -->
