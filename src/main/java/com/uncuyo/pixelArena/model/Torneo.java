@@ -29,8 +29,6 @@ public class Torneo {
     private Date fechaFinalTorneo;
     @Column(name = "costoinscripción")
     private double costoInscripcionTorneo;
-    @Column(name = "activo")
-    private boolean activo;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idjuego")
     private Juego juego;
@@ -45,7 +43,6 @@ public class Torneo {
         this.fechaFinalTorneo = fechaFinalTorneo;
         this.costoInscripcionTorneo = costoInscripcionTorneo;
         this.juego = juego;
-        this.activo = true;
     }
     
     public Torneo(String nombreTorneo, String descripcionTorneo, Date fechaInicioTorneo, double costoInscripcionTorneo, Juego juego) {
@@ -54,7 +51,6 @@ public class Torneo {
         this.fechaInicioTorneo = fechaInicioTorneo;
         this.costoInscripcionTorneo = costoInscripcionTorneo;
         this.juego = juego;
-        this.activo = true;
     }
 
     public long getNumTorneo() {
@@ -109,16 +105,8 @@ public class Torneo {
         this.juego = juego;
     }
 
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public void setActivo(boolean activo) {
-        this.activo = activo;
-    }
-
     @Override
     public String toString() {
-        return "Torneo{" + "numTorneo=" + numTorneo + ", nombreTorneo=" + nombreTorneo + ", descripcionTorneo=" + descripcionTorneo + ", fechaInicioTorneo=" + fechaInicioTorneo + ", fechaFinalTorneo=" + fechaFinalTorneo + ", costoInscripcionTorneo=" + costoInscripcionTorneo + ", uego=" + juego + ", activo=" + activo + '}';
+        return "Torneo{" + "numTorneo=" + numTorneo + ", nombreTorneo=" + nombreTorneo + ", descripcionTorneo=" + descripcionTorneo + ", fechaInicioTorneo=" + fechaInicioTorneo + ", fechaFinalTorneo=" + fechaFinalTorneo + ", costoInscripcionTorneo=" + costoInscripcionTorneo + ", juego=" + juego + '}';
     }
 }

@@ -45,11 +45,23 @@ public class JuegoControlador {
         return juego != null;
     }
     
-    public Juego buscarJuego(String id){
+    public Juego buscarJuegoPorId(String id){
         if(!existeJuego(id)){
             return null;
         }
         return juegoDAO.buscarPorId(Long.parseLong(id));
+    }
+    
+    public Juego buscarJuegoPorNombre(String nombre){
+        Juego juegoSeleccionado = null;
+        List<Juego> juegos = listarJuegos();
+        for (Juego juego : juegos) {
+            if (juego.getNombre().equals(nombre)) {
+                juegoSeleccionado = juego;
+                break;
+            }
+        }
+        return juegoSeleccionado;
     }
     
     public String  modificarJuego(String idJuego, String nombre, String idEmpresa, String estado){

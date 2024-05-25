@@ -25,7 +25,6 @@ public class TorneoDAO implements DAO<Torneo>{
     public void insertar(Torneo torneo) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        torneo.setActivo(true);
         em.persist(torneo);
         em.getTransaction().commit();
         em.close();
@@ -38,7 +37,7 @@ public class TorneoDAO implements DAO<Torneo>{
         em.getTransaction().begin();
         torneoModificar.setNombreTorneo(torneo.getNombreTorneo());
         torneoModificar.setDescripcionTorneo(torneo.getDescripcionTorneo());
-        torneoModificar.setFechaFinalTorneo(torneo.getFechaFinalTorneo());
+        torneoModificar.setFechaInicioTorneo(torneo.getFechaInicioTorneo());
         torneoModificar.setFechaFinalTorneo(torneo.getFechaFinalTorneo());
         torneoModificar.setCostoInscripcionTorneo(torneo.getCostoInscripcionTorneo());
         torneoModificar.setJuego(torneo.getJuego());
@@ -52,11 +51,11 @@ public class TorneoDAO implements DAO<Torneo>{
         try {
             em.getTransaction().begin();
             Torneo torneoEliminar = em.find(Torneo.class, torneo.getNumTorneo());
-            torneoEliminar.setActivo(false);
+            em.remove(torneoEliminar);
             em.getTransaction().commit();
 
         } catch (NullPointerException e) {
-            System.out.println("No se encontró al organizador de torneos");
+            System.out.println("No se encontró el torneo");
             
         }catch(Exception e){
             System.out.println(e);

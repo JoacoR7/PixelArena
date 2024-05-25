@@ -3,6 +3,7 @@ package com.uncuyo.pixelArena.control;
 import com.uncuyo.pixelArena.dao.TorneoDAO;
 import com.uncuyo.pixelArena.model.Juego;
 import com.uncuyo.pixelArena.model.Torneo;
+import com.uncuyo.pixelArena.util.DateUtil;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,6 +13,7 @@ public class TorneoControlador {
 
     static TorneoDAO torneoDAO = new TorneoDAO();
     static JuegoControlador juegoControlador = new JuegoControlador();
+    static DateUtil dateUtil = new DateUtil();
 
     public boolean existeTorneo(String id) {
         long idTorneo;
@@ -32,29 +34,8 @@ public class TorneoControlador {
         return null;
     }
 
-    public Date obtenerFecha(String textoFecha) {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-
-        try {
-            // Parsear el texto a Date
-            Date fecha = formatter.parse(textoFecha);
-
-            // Imprimir la fecha
-            return fecha;
-        } catch (ParseException e) {
-            return null;
-        }
-    }
-
     public String crearTorneo(String nombre, String descripcion, String nombreJuego, String textoFechaInicio, String textoFechaFinal, String costo) {
-        Juego juegoSeleccionado = null;
-        List<Juego> juegos = juegoControlador.listarJuegos();
-        for (Juego juego : juegos) {
-            if (juego.getNombre().equals(nombreJuego)) {
-                juegoSeleccionado = juego;
-                break;
-            }
-        }
+        Juego juegoSeleccionado = juegoControlador.buscarJuegoPorNombre(nombre);
         if (nombre.equals("")) {
             return "Debe elegir un nombre para el torneo";
         }
@@ -71,11 +52,11 @@ public class TorneoControlador {
             return "Debe elegir un costo de inscripción del torneo";
         }
         
-        Date fechaInicio = obtenerFecha(textoFechaInicio);
+        Date fechaInicio = dateUtil.obtenerFecha(textoFechaInicio);
         if(fechaInicio == null){
             return "Formato de fecha no válido, use dd/mm/aaaa";
         }
-        Date fechaFinal = obtenerFecha(textoFechaFinal);
+        Date fechaFinal = dateUtil.obtenerFecha(textoFechaFinal);
         if(fechaFinal == null){
             return "Formato de fecha no válido, use dd/mm/aaaa";
         }
@@ -89,6 +70,42 @@ public class TorneoControlador {
         Torneo torneo = new Torneo(nombre, descripcion, fechaInicio, fechaFinal, costoInscripcion, juegoSeleccionado);
         torneoDAO.insertar(torneo);
         return "Torneo creado exitosamente";
+    }
+    
+    public String modificarTorneo(String id, String nombre, String descripcion, String nombreJuego, String fechaInicioString, String fechaFinalString, String costo){
+        Torneo torneo = buscarTorneo(id);
+        torneo.setNombreTorneo(nombre);
+        torneo.setDescripcionTorneo(descripcion);
+        torneo.setJuego(juegoControlador.buscarJuegoPorNombre(nombreJuego));
+        Date fechaInicio = dateUtil.obtenerFecha(fechaInicioString);
+        if(fechaInicio == null){
+            return "Fecha de inicio incorrecta";
+        }
+        torneo.setFechaInicioTorneo(fechaInicio);
+        Date fechaFinal = dateUtil.obtenerFecha(fechaFinalString);
+        if(fechaFinal == null){
+            return "Fecha de finalización incorrecta";
+        }
+        torneo.setFechaFinalTorneo(fechaFinal);
+        double costoInscripcion;
+        try {
+            costo = costo.replace(",", ".");
+            costoInscripcion = Double.parseDouble(costo);
+            torneo.setCostoInscripcionTorneo(costoInscripcion);
+        } catch (Exception e) {
+            return "El precio de inscripción no está escrito en un formato válido";
+        }      
+        torneoDAO.modificar(torneo);
+        return "Torneo editado exitosamente";
+    }
+    
+    public String borrarTorneo(String id){
+        Torneo torneoBorrar = buscarTorneo(id);
+        if(torneoBorrar == null){
+            return "No existe el torneo";
+        }
+        torneoDAO.eliminar(torneoBorrar);
+        return "Torneo eliminado exitosamente";
     }
 
 }
