@@ -1,19 +1,22 @@
 package com.uncuyo.pixelArena.view;
 
 import com.uncuyo.pixelArena.control.JuegoControlador;
+import com.uncuyo.pixelArena.control.TorneoControlador;
 import com.uncuyo.pixelArena.model.Juego;
 import java.util.List;
 
 public class IngresarTorneoFrame extends javax.swing.JFrame {
 
-   private JuegoControlador juegoControlador;
-    
+    private JuegoControlador juegoControlador;
+    private TorneoControlador torneoControlador;
+
     public IngresarTorneoFrame() {
         initComponents();
         juegoControlador = new JuegoControlador();
+        torneoControlador = new TorneoControlador();
         List<Juego> juegos = juegoControlador.listarJuegos();
-        for(Juego juego : juegos){
-            if(juego.isActivo()){
+        for (Juego juego : juegos) {
+            if (juego.isActivo()) {
                 juegosBox.addItem(juego.getNombre());
             }
         }
@@ -47,6 +50,7 @@ public class IngresarTorneoFrame extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         textoCosto = new javax.swing.JTextPane();
+        textoAviso2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registrar nuevo torneo");
@@ -142,31 +146,25 @@ public class IngresarTorneoFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(138, 138, 138)
-                                .addComponent(textoAviso)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fechaInicio)
-                            .addComponent(juegosBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1)
-                            .addComponent(fechaFinal, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(138, 138, 138)
+                        .addComponent(textoAviso)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fechaInicio)
+                    .addComponent(juegosBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
+                    .addComponent(fechaFinal, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(39, 39, 39)
@@ -174,6 +172,14 @@ public class IngresarTorneoFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jToggleButton2)
                 .addGap(32, 32, 32))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(117, 117, 117)
+                .addComponent(textoAviso2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(180, 180, 180))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,11 +212,13 @@ public class IngresarTorneoFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane3)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jToggleButton1)
                     .addComponent(jToggleButton2))
-                .addGap(47, 47, 47))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textoAviso2)
+                .addGap(19, 19, 19))
         );
 
         textoAviso.getAccessibleContext().setAccessibleName("textoAviso");
@@ -219,27 +227,27 @@ public class IngresarTorneoFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void textoNombreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textoNombreMouseEntered
-        if(textoNombre.getText().equals("Ingrese el nombre")){
+        if (textoNombre.getText().equals("Ingrese el nombre")) {
             textoNombre.setText("");
         }
-        
+
     }//GEN-LAST:event_textoNombreMouseEntered
 
     private void textoNombreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textoNombreMouseExited
-        if(textoNombre.getText().equals("")){
+        if (textoNombre.getText().equals("")) {
             textoNombre.setText("Ingrese el nombre");
         }
-        
+
     }//GEN-LAST:event_textoNombreMouseExited
 
     private void textoDescripcionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textoDescripcionMouseEntered
-        if(textoDescripcion.getText().equals("Ingrese una descripción")){
+        if (textoDescripcion.getText().equals("Ingrese una descripción")) {
             textoDescripcion.setText("");
         }
     }//GEN-LAST:event_textoDescripcionMouseEntered
 
     private void textoDescripcionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textoDescripcionMouseExited
-        if(textoDescripcion.getText().equals("")){
+        if (textoDescripcion.getText().equals("")) {
             textoDescripcion.setText("Ingrese una descripción");
         }
     }//GEN-LAST:event_textoDescripcionMouseExited
@@ -249,42 +257,45 @@ public class IngresarTorneoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarClicked
 
     private void aceptarClicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarClicked
-        textoAviso.setText(juegoControlador.crearJuego(textoNombre.getText(), textoDescripcion.getText()));
-        
+        textoAviso2.setText(torneoControlador.crearTorneo(textoNombre.getText(), 
+                textoDescripcion.getText(), (String) juegosBox.getSelectedItem(), 
+                fechaInicio.getText(), fechaFinal.getText(), textoCosto.getText()));
+
+
     }//GEN-LAST:event_aceptarClicked
 
     private void textoCostoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textoCostoMouseEntered
-        if(textoCosto.getText().equals("Ingrese el precio de inscripción")){
+        if (textoCosto.getText().equals("Ingrese el precio de inscripción")) {
             textoCosto.setText("");
         }
     }//GEN-LAST:event_textoCostoMouseEntered
 
     private void textoCostoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textoCostoMouseExited
-        if(textoCosto.getText().equals("")){
+        if (textoCosto.getText().equals("")) {
             textoCosto.setText("Ingrese el precio de inscripción");
         }
     }//GEN-LAST:event_textoCostoMouseExited
 
     private void fechaInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fechaInicioMouseEntered
-       if(fechaInicio.getText().equals("dd/mm/aaaa")){
+        if (fechaInicio.getText().equals("dd/mm/aaaa")) {
             fechaInicio.setText("");
         }
     }//GEN-LAST:event_fechaInicioMouseEntered
 
     private void fechaInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fechaInicioMouseExited
-        if(fechaInicio.getText().equals("")){
+        if (fechaInicio.getText().equals("")) {
             fechaInicio.setText("dd/mm/aaaa");
         }
     }//GEN-LAST:event_fechaInicioMouseExited
 
     private void fechaFinalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fechaFinalMouseEntered
-        if(fechaFinal.getText().equals("dd/mm/aaaa")){
+        if (fechaFinal.getText().equals("dd/mm/aaaa")) {
             fechaFinal.setText("");
         }
     }//GEN-LAST:event_fechaFinalMouseEntered
 
     private void fechaFinalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fechaFinalMouseExited
-        if(fechaFinal.getText().equals("")){
+        if (fechaFinal.getText().equals("")) {
             fechaFinal.setText("dd/mm/aaaa");
         }
     }//GEN-LAST:event_fechaFinalMouseExited
@@ -344,6 +355,7 @@ public class IngresarTorneoFrame extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JComboBox<String> juegosBox;
     private javax.swing.JLabel textoAviso;
+    private javax.swing.JLabel textoAviso2;
     private javax.swing.JTextPane textoCosto;
     private javax.swing.JTextPane textoDescripcion;
     private javax.swing.JTextPane textoNombre;
