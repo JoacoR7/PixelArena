@@ -2,8 +2,7 @@
  */
 package com.uncuyo.pixelArena.view;
 
-import com.uncuyo.pixelArena.control.JuegoControlador;
-import com.uncuyo.pixelArena.model.Juego;
+import com.uncuyo.pixelArena.control.EmpresaControlador;
 
 /**
  *
@@ -11,11 +10,11 @@ import com.uncuyo.pixelArena.model.Juego;
  */
 public class IngresarEmpresaFrame extends javax.swing.JFrame {
 
-   private JuegoControlador juegoControlador;
+   private EmpresaControlador empresaControlador;
     
     public IngresarEmpresaFrame() {
         initComponents();
-        juegoControlador = new JuegoControlador();
+        empresaControlador = new EmpresaControlador();
     }
 
     /**
@@ -196,49 +195,25 @@ public class IngresarEmpresaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarClicked
 
     private void aceptarClicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarClicked
-        textoAviso.setText(juegoControlador.crearJuego(textoNombre.getText(), textoEmail.getText()));
+        textoAviso.setText(empresaControlador.crearEmpresa(textoNombre.getText(), textoEmail.getText(), textoNumTelefono.getText()));
         
     }//GEN-LAST:event_aceptarClicked
 
     private void textoNumTelefonoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textoNumTelefonoMouseEntered
-        // TODO add your handling code here:
+        if(textoNumTelefono.getText().equals("Ingrese el número de teléfono")){
+            textoNumTelefono.setText("");
+        }
     }//GEN-LAST:event_textoNumTelefonoMouseEntered
 
     private void textoNumTelefonoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textoNumTelefonoMouseExited
-        // TODO add your handling code here:
+        if(textoNumTelefono.getText().equals("")){
+            textoNumTelefono.setText("Ingrese el número de teléfono");
+        }
     }//GEN-LAST:event_textoNumTelefonoMouseExited
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IngresarEmpresaFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IngresarEmpresaFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IngresarEmpresaFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IngresarEmpresaFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
+    public static void main(String args[]) {
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new IngresarEmpresaFrame().setVisible(true);

@@ -26,4 +26,25 @@ public class EmpresaControlador {
         return null;
     }
     
+    public String crearEmpresa(String nombre, String email, String numTelefono){
+        int numTelefonoInt;
+        try {
+            numTelefonoInt = Integer.valueOf(numTelefono);
+        } catch (Exception e) {
+            return "Numero de teléfono inválido";
+        }
+        empresaDAO.insertar(new Empresa(nombre, email, numTelefonoInt));
+        return "Empresa creada exitosamente";
+    }
+    
+    public String modificarEmpresa(String idEmpresa, String nombre, String email, String numTelefono, String estadoEmpresa){
+        Empresa empresa = empresaDAO.buscarPorId(Long.parseLong(idEmpresa));
+        empresa.setNombre(nombre);
+        empresa.setEmail(email);
+        empresa.setNumtelefono(Integer.parseInt(numTelefono));
+        empresa.setActivo(estadoEmpresa.equals("Activa"));
+        empresaDAO.modificar(empresa);
+        return "Empresa modificada exitosamente";
+    }
+    
 }

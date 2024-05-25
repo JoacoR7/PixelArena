@@ -3,6 +3,7 @@ package com.uncuyo.pixelArena.control;
 import com.uncuyo.pixelArena.dao.JuegoDAO;
 import com.uncuyo.pixelArena.model.Empresa;
 import com.uncuyo.pixelArena.model.Juego;
+import java.util.List;
 
 public class JuegoControlador {
     
@@ -52,32 +53,22 @@ public class JuegoControlador {
     }
     
     public String  modificarJuego(String idJuego, String nombre, String idEmpresa, String estado){
+        Empresa empresa = empresaControlador.buscarEmpresa(idEmpresa);
+        if(empresa == null){
+            return "No existe la empresa";
+         }
         Juego juego = juegoDAO.buscarPorId(Long.parseLong(idJuego));
         juego.setActivo(estado.equals("Activo"));
-        System.out.println(estado);
-        if((!nombre.equals("") || !nombre.equals("Ingrese el nombre")) && (!idEmpresa.equals("") || (!idEmpresa.equals("Ingrese el id de la empresa")))){
-            Empresa empresa = empresaControlador.buscarEmpresa(idEmpresa);
-            if(empresa == null){
-                return "No existe la empresa";
-            }
-            
-            juego.setNombre(nombre);
-            juego.setEmpresa(empresa);
-            juegoDAO.modificar(juego);
-            
-        } else if(!nombre.equals("") || !nombre.equals("Ingrese el nombre")){
-            juegoDAO.modificar(juego);
-            
-        } else{
-            Empresa empresa = empresaControlador.buscarEmpresa(idEmpresa);
-            if(empresa == null){
-                return "No existe la empresa";
-            }
-            juego.setEmpresa(empresa);
-            juegoDAO.modificar(juego);
-        }
-        
+        juego.setNombre(nombre);
+        juego.setEmpresa(empresa);
+        juegoDAO.modificar(juego);
         return "Juego modificado exitosamente";
 
+    }
+    
+    public List<Juego> listarJuegos(){
+        List<Juego> juegos;
+        juegos = juegoDAO.listar();
+        return juegos;
     }
 }

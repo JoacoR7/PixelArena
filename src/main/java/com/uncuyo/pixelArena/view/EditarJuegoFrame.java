@@ -213,6 +213,11 @@ public class EditarJuegoFrame extends javax.swing.JFrame {
                 Juego juego = juegoControlador.buscarJuego(idJuego);
                 textoNombre.setText(juego.getNombre());
                 textoIdEmpresa.setText(String.valueOf(juego.getEmpresa().getId()));
+                if(!juego.isActivo()){
+                    estadoJuego.setSelectedItem("Inactivo");
+                }else{
+                    estadoJuego.setSelectedItem("Activo");
+                }
             } else {
                 textoNombre.setText("Ingrese el nombre");
                 textoIdEmpresa.setText("Ingrese el id de la empresa");

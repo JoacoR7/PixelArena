@@ -37,6 +37,7 @@ public class EmpresaDAO implements DAO<Empresa> {
         empresaModificar.setNombre(empresa.getNombre());
         empresaModificar.setEmail(empresa.getEmail());
         empresaModificar.setNumtelefono(empresa.getNumtelefono());
+        empresaModificar.setActivo(empresa.isActivo());
         em.getTransaction().commit();
         em.close();
     }
