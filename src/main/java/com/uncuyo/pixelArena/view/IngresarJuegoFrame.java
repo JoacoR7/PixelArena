@@ -10,6 +10,7 @@ public class IngresarJuegoFrame extends javax.swing.JFrame {
     public IngresarJuegoFrame() {
         initComponents();
         juegoControlador = new JuegoControlador();
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     /**

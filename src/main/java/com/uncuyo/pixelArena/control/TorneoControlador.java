@@ -35,7 +35,7 @@ public class TorneoControlador {
     }
 
     public String crearTorneo(String nombre, String descripcion, String nombreJuego, String textoFechaInicio, String textoFechaFinal, String costo) {
-        Juego juegoSeleccionado = juegoControlador.buscarJuegoPorNombre(nombre);
+        Juego juegoSeleccionado = juegoControlador.buscarJuegoPorNombre(nombreJuego);
         if (nombre.equals("")) {
             return "Debe elegir un nombre para el torneo";
         }
@@ -106,6 +106,10 @@ public class TorneoControlador {
         }
         torneoDAO.eliminar(torneoBorrar);
         return "Torneo eliminado exitosamente";
+    }
+    
+    public List<Torneo> listarTorneos(){
+        return torneoDAO.listar();
     }
 
 }

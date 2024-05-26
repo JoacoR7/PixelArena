@@ -6,6 +6,8 @@ import com.uncuyo.pixelArena.control.EmpresaControlador;
 import com.uncuyo.pixelArena.control.JuegoControlador;
 import com.uncuyo.pixelArena.model.Empresa;
 import com.uncuyo.pixelArena.model.Juego;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  *
@@ -18,8 +20,9 @@ public class EditarEmpresaFrame extends javax.swing.JFrame {
     public EditarEmpresaFrame() {
         initComponents();
         empresaControlador = new EmpresaControlador();
-
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -223,7 +226,7 @@ public class EditarEmpresaFrame extends javax.swing.JFrame {
             if (!empresaControlador.existeEmpresa(textoIdEmpresa.getText())) {
                 textoAviso.setText("No existe la empresa");
             } else {
-                textoAviso.setText(empresaControlador.modificarEmpresa(textoIdEmpresa.getText(), textoNombre.getText(), textoEmailEmpresa.getText(), textoNumTelefono.getText() ,(String) estadoEmpresa.getSelectedItem()));
+                textoAviso.setText(empresaControlador.modificarEmpresa(textoIdEmpresa.getText(), textoNombre.getText(), textoEmailEmpresa.getText(), textoNumTelefono.getText(), (String) estadoEmpresa.getSelectedItem()));
             }
         }
     }//GEN-LAST:event_aceptarClicked
@@ -236,9 +239,9 @@ public class EditarEmpresaFrame extends javax.swing.JFrame {
                 textoNombre.setText(empresa.getNombre());
                 textoEmailEmpresa.setText(empresa.getEmail());
                 textoNumTelefono.setText(String.valueOf(empresa.getNumtelefono()));
-                if(!empresa.isActivo()){
+                if (!empresa.isActivo()) {
                     estadoEmpresa.setSelectedItem("Inactiva");
-                }else{
+                } else {
                     estadoEmpresa.setSelectedItem("Activa");
                 }
             } else {

@@ -13,11 +13,6 @@ public class EmpresaDAO implements DAO<Empresa> {
     static {
         emf = Persistence.createEntityManagerFactory("Persistencia");
     }
-    
-    public static void main(String[] args) {
-        EmpresaDAO ed = new EmpresaDAO();
-        ed.insertar(new Empresa("Riot Games", "riotGames@gmail.com", 11111111));
-    }
 
     @Override
     public void insertar(Empresa empresa) {
@@ -82,7 +77,7 @@ public class EmpresaDAO implements DAO<Empresa> {
         EntityManager em = emf.createEntityManager();
         List<Empresa> empresas = null;
         try {
-            empresas = em.createQuery("FROM Empresa", Empresa.class).getResultList();
+            empresas = em.createQuery("FROM Empresa ORDER BY id", Empresa.class).getResultList();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

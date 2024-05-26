@@ -15,12 +15,6 @@ public class TorneoDAO implements DAO<Torneo>{
         emf = Persistence.createEntityManagerFactory("Persistencia");
     }
     
-    public static void main(String[] args) {
-        TorneoDAO td = new TorneoDAO();
-        td.eliminar(td.buscarPorId(2));
-        
-    }
-
     @Override
     public void insertar(Torneo torneo) {
         EntityManager em = emf.createEntityManager();
@@ -87,7 +81,7 @@ public class TorneoDAO implements DAO<Torneo>{
         EntityManager em = emf.createEntityManager();
         List<Torneo> torneos = null;
         try {
-            torneos = em.createQuery("FROM Torneo", Torneo.class).getResultList();
+            torneos = em.createQuery("FROM Torneo ORDER BY numerotorneo", Torneo.class).getResultList();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

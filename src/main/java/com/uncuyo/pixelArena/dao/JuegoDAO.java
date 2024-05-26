@@ -75,7 +75,7 @@ public class JuegoDAO implements DAO<Juego> {
         EntityManager em = emf.createEntityManager();
         List<Juego> juegos = null;
         try {
-            juegos = em.createQuery("FROM Juego", Juego.class).getResultList();
+            juegos = em.createQuery("FROM Juego ORDER BY id", Juego.class).getResultList();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

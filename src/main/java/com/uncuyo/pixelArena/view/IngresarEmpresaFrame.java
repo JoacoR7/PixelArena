@@ -15,6 +15,7 @@ public class IngresarEmpresaFrame extends javax.swing.JFrame {
     public IngresarEmpresaFrame() {
         initComponents();
         empresaControlador = new EmpresaControlador();
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     /**

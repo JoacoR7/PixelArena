@@ -2,6 +2,7 @@ package com.uncuyo.pixelArena.control;
 
 import com.uncuyo.pixelArena.dao.EmpresaDAO;
 import com.uncuyo.pixelArena.model.Empresa;
+import java.util.List;
 
 public class EmpresaControlador {
     
@@ -45,6 +46,10 @@ public class EmpresaControlador {
         empresa.setActivo(estadoEmpresa.equals("Activa"));
         empresaDAO.modificar(empresa);
         return "Empresa modificada exitosamente";
+    }
+    
+    public List<Empresa> listarEmpresas(){
+        return empresaDAO.listar();
     }
     
 }

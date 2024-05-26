@@ -1,3 +1,5 @@
+C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\control\OrganizadorTorneoControlador.java
+C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\dao\OrganizadorTorneoDAO.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\view\EditarTorneoFrame.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\dao\DAO.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\view\IngresarEmpresaFrame.java
@@ -5,6 +7,7 @@ C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\testing\Test.
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\view\IngresarTorneoFrame.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\view\ConfirmarFrame.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\dao\EmpresaDAO.java
+C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\model\OrganizadorTorneo.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\dao\TorneoDAO.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\view\EditarEmpresaFrame.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\view\IngresarJuegoFrame.java
@@ -14,6 +17,8 @@ C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pi
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\control\EmpresaControlador.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\model\Juego.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\util\DateUtil.java
+C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\view\LoginFrame.java
+C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\view\MainFrame.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\control\TorneoControlador.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\model\Torneo.java
 C:\Users\joaqu\Documents\NetBeansProjects\PixelArena\src\main\java\com\uncuyo\pixelArena\control\JuegoControlador.java

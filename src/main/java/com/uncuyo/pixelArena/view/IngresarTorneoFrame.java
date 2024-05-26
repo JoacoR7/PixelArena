@@ -9,6 +9,7 @@ public class IngresarTorneoFrame extends javax.swing.JFrame {
 
     private JuegoControlador juegoControlador;
     private TorneoControlador torneoControlador;
+    private MainFrame mainFrame;
 
     public IngresarTorneoFrame() {
         initComponents();
@@ -20,6 +21,7 @@ public class IngresarTorneoFrame extends javax.swing.JFrame {
                 juegosBox.addItem(juego.getNombre());
             }
         }
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -260,6 +262,8 @@ public class IngresarTorneoFrame extends javax.swing.JFrame {
         textoAviso2.setText(torneoControlador.crearTorneo(textoNombre.getText(), 
                 textoDescripcion.getText(), (String) juegosBox.getSelectedItem(), 
                 fechaInicio.getText(), fechaFinal.getText(), textoCosto.getText()));
+        mainFrame = new MainFrame();
+        mainFrame.llenarTablas();
 
 
     }//GEN-LAST:event_aceptarClicked

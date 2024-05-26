@@ -16,7 +16,7 @@ public class EditarJuegoFrame extends javax.swing.JFrame {
     public EditarJuegoFrame() {
         initComponents();
         juegoControlador = new JuegoControlador();
-
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     /**
