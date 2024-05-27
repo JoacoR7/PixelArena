@@ -4,6 +4,7 @@
     <class>com.uncuyo.pixelArena.model.Empresa</class>
     <class>com.uncuyo.pixelArena.model.Juego</class>
     <class>com.uncuyo.pixelArena.model.Torneo</class>
+    <class>com.uncuyo.pixelArena.model.OrganizadorTorneo</class>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
       <!-- DB Driver -->

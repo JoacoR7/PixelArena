@@ -264,8 +264,8 @@ public class IngresarTorneoFrame extends javax.swing.JFrame {
                 fechaInicio.getText(), fechaFinal.getText(), textoCosto.getText()));
         mainFrame = new MainFrame();
         mainFrame.llenarTablas();
-
-
+        this.dispose();
+        this.setVisible(true);
     }//GEN-LAST:event_aceptarClicked
 
     private void textoCostoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textoCostoMouseEntered

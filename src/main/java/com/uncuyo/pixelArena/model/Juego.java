@@ -68,11 +68,9 @@ public class Juego {
 
     @Override
     public String toString() {
-        return "Juego{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", empresa=" + empresa +
-                ", activo=" + activo +
-                '}';
+        return "Id: " + id +
+                ", Nombre: '" + nombre + '\'' +
+                ", Empresa: " + empresa.getNombre() +
+                ", Activo: " + activo;
     }
 }

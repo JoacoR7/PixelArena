@@ -11,10 +11,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "torneo")
 public class Torneo {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "numerotorneo")
@@ -44,7 +44,7 @@ public class Torneo {
         this.costoInscripcionTorneo = costoInscripcionTorneo;
         this.juego = juego;
     }
-    
+
     public Torneo(String nombreTorneo, String descripcionTorneo, Date fechaInicioTorneo, double costoInscripcionTorneo, Juego juego) {
         this.nombreTorneo = nombreTorneo;
         this.descripcionTorneo = descripcionTorneo;
@@ -107,6 +107,6 @@ public class Torneo {
 
     @Override
     public String toString() {
-        return "Torneo{" + "numTorneo=" + numTorneo + ", nombreTorneo=" + nombreTorneo + ", descripcionTorneo=" + descripcionTorneo + ", fechaInicioTorneo=" + fechaInicioTorneo + ", fechaFinalTorneo=" + fechaFinalTorneo + ", costoInscripcionTorneo=" + costoInscripcionTorneo + ", juego=" + juego + '}';
+        return "Número: " + numTorneo + ", Nombre: " + nombreTorneo + ", Descripción: " + descripcionTorneo + ", Fecha inicio: " + fechaInicioTorneo + ", Fecha final: " + fechaFinalTorneo + ", Costo de inscripción: $" + costoInscripcionTorneo + ", Juego: " + juego.getNombre();
     }
 }

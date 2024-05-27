@@ -169,7 +169,8 @@ public class IngresarJuegoFrame extends javax.swing.JFrame {
 
     private void aceptarClicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarClicked
         textoAviso.setText(juegoControlador.crearJuego(TextoNombre.getText(), textoIdEmpresa.getText()));
-        
+        this.dispose();
+        this.setVisible(true);
     }//GEN-LAST:event_aceptarClicked
 
     /**

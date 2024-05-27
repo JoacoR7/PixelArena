@@ -274,6 +274,8 @@ public class EditarTorneoFrame extends javax.swing.JFrame {
                 textoAvisoTorneo.setText(torneoControlador.modificarTorneo(textoIdTorneo.getText(), textoNombre.getText(), textoDescripcion.getText(), (String) juegosBox.getSelectedItem(), fechaInicio.getText(), fechaFinal.getText(), textoCosto.getText()));
             }
         }
+        this.dispose();
+        this.setVisible(true);
     }//GEN-LAST:event_aceptarClicked
 
     private void textoIdTorneoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoIdTorneoKeyReleased

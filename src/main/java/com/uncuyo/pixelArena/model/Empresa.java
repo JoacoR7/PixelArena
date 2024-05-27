@@ -10,6 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "empresa")
 public class Empresa {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -48,7 +49,7 @@ public class Empresa {
     public boolean isActivo() {
         return activo;
     }
-       
+
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
@@ -68,12 +69,10 @@ public class Empresa {
     public void setNumtelefono(int numtelefono) {
         this.numtelefono = numtelefono;
     }
-    
-    
 
     @Override
     public String toString() {
-        return "Empresa{" + "Id=" + Id + ", nombre=" + nombre + ", email=" + email + ", numtelefono=" + numtelefono + '}';
+        return "Id: " + Id + ", Nombre: " + nombre + ", Email: " + email + ", Número de teléfono: " + numtelefono;
     }
-    
+
 }

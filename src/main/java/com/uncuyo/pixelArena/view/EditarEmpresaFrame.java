@@ -229,6 +229,8 @@ public class EditarEmpresaFrame extends javax.swing.JFrame {
                 textoAviso.setText(empresaControlador.modificarEmpresa(textoIdEmpresa.getText(), textoNombre.getText(), textoEmailEmpresa.getText(), textoNumTelefono.getText(), (String) estadoEmpresa.getSelectedItem()));
             }
         }
+        this.dispose();
+        this.setVisible(true);
     }//GEN-LAST:event_aceptarClicked
 
     private void textoIdEmpresaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoIdEmpresaKeyReleased

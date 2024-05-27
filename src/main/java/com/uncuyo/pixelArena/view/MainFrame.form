@@ -63,14 +63,13 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
               <Component id="añadirEmpresaButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
+              <Component id="backupEmpresa" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
+              <Component id="restaurarEmpresa" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="modificarEmpresaButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="1043" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
@@ -80,6 +79,10 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                       <Component id="añadirJuegoButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
+                      <Component id="backupJuego" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
+                      <Component id="restaurarJuego" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="modificarJuegoButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
@@ -90,17 +93,41 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="empresaLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane6" alignment="0" min="-2" pref="1043" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                      <Component id="añadirTorneoButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="modificarTorneoButton" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="backupGeneral" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
+                              <Component id="generarReporte" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="restaurarGeneral" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="añadirTorneoButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+                              <Component id="backupTorneo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
+                              <Component id="restaurarTorneo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="modificarTorneoButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="empresaLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jScrollPane6" alignment="0" min="-2" pref="1043" max="-2" attributes="0"/>
               </Group>
+          </Group>
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="1043" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -117,6 +144,8 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="modificarEmpresaButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="añadirEmpresaButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="backupEmpresa" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="restaurarEmpresa" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="empresaLabel1" min="-2" max="-2" attributes="0"/>
@@ -126,6 +155,8 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="añadirJuegoButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="modificarJuegoButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="backupJuego" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="restaurarJuego" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="empresaLabel2" min="-2" max="-2" attributes="0"/>
@@ -133,10 +164,20 @@
               <Component id="jScrollPane6" min="-2" pref="169" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="añadirTorneoButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="añadirTorneoButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="backupTorneo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="restaurarTorneo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Component id="modificarTorneoButton" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="backupGeneral" min="-2" max="-2" attributes="0"/>
+                  <Component id="restaurarGeneral" min="-2" max="-2" attributes="0"/>
+                  <Component id="generarReporte" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="15" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -285,5 +326,77 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="backupEmpresa">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Hacer backup de empresas"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backupEmpresaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="backupJuego">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Hacer backup de juegos"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backupJuegoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="backupTorneo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Hacer backup de torneos"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backupTorneoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="restaurarEmpresa">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Restaurar de &#xfa;ltimo backup"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="restaurarEmpresaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="restaurarTorneo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Restaurar de &#xfa;ltimo backup"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="restaurarTorneoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="restaurarJuego">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Restaurar de &#xfa;ltimo backup"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="restaurarJuegoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="backupGeneral">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Hacer backup de todos los datos"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backupGeneralActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="restaurarGeneral">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Restaurar de &#xfa;ltimo backup general"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="restaurarGeneralActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="generarReporte">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Generar reporte"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="generarReporteActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

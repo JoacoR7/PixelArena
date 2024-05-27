@@ -204,6 +204,8 @@ public class EditarJuegoFrame extends javax.swing.JFrame {
                 textoAviso.setText(juegoControlador.modificarJuego(textoIdJuego.getText(), textoNombre.getText(), textoIdEmpresa.getText(), (String) estadoJuego.getSelectedItem()));
             }
         }
+        this.dispose();
+        this.setVisible(true);
     }//GEN-LAST:event_aceptarClicked
 
     private void textoIdJuegoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoIdJuegoKeyReleased

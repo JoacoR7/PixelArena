@@ -5,13 +5,16 @@ package com.uncuyo.pixelArena.view;
 import com.uncuyo.pixelArena.control.EmpresaControlador;
 import com.uncuyo.pixelArena.control.JuegoControlador;
 import com.uncuyo.pixelArena.control.TorneoControlador;
+import com.uncuyo.pixelArena.data.DbBackUp;
 import com.uncuyo.pixelArena.model.Empresa;
 import com.uncuyo.pixelArena.model.Juego;
 import com.uncuyo.pixelArena.model.Torneo;
+import com.uncuyo.pixelArena.pdf.ReportGenerator;
 import com.uncuyo.pixelArena.util.DateUtil;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.lang.reflect.Field;
+import java.util.Date;
 import java.util.List;
 import javassist.tools.framedump;
 import javax.swing.JFrame;
@@ -27,6 +30,8 @@ public class MainFrame extends javax.swing.JFrame {
     private TorneoControlador torneoControlador;
     private JuegoControlador juegoControlador;
     private DateUtil dateUtil;
+    private DbBackUp dbBackUp;
+    private String backupPath = "C:\\Users\\joaqu\\Documents\\NetBeansProjects\\PixelArena\\backups";
 
     public MainFrame() {
         initComponents();
@@ -34,6 +39,7 @@ public class MainFrame extends javax.swing.JFrame {
         torneoControlador = new TorneoControlador();
         juegoControlador = new JuegoControlador();
         dateUtil = new DateUtil();
+        dbBackUp = new DbBackUp();
 
         llenarTablas();
 
@@ -106,6 +112,15 @@ public class MainFrame extends javax.swing.JFrame {
         tablaJuegos = new javax.swing.JTable();
         jScrollPane6 = new javax.swing.JScrollPane();
         tablaTorneos = new javax.swing.JTable();
+        backupEmpresa = new javax.swing.JButton();
+        backupJuego = new javax.swing.JButton();
+        backupTorneo = new javax.swing.JButton();
+        restaurarEmpresa = new javax.swing.JButton();
+        restaurarTorneo = new javax.swing.JButton();
+        restaurarJuego = new javax.swing.JButton();
+        backupGeneral = new javax.swing.JButton();
+        restaurarGeneral = new javax.swing.JButton();
+        generarReporte = new javax.swing.JButton();
 
         tblCliente1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -215,6 +230,69 @@ public class MainFrame extends javax.swing.JFrame {
         ));
         jScrollPane6.setViewportView(tablaTorneos);
 
+        backupEmpresa.setText("Hacer backup de empresas");
+        backupEmpresa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backupEmpresaActionPerformed(evt);
+            }
+        });
+
+        backupJuego.setText("Hacer backup de juegos");
+        backupJuego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backupJuegoActionPerformed(evt);
+            }
+        });
+
+        backupTorneo.setText("Hacer backup de torneos");
+        backupTorneo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backupTorneoActionPerformed(evt);
+            }
+        });
+
+        restaurarEmpresa.setText("Restaurar de último backup");
+        restaurarEmpresa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                restaurarEmpresaActionPerformed(evt);
+            }
+        });
+
+        restaurarTorneo.setText("Restaurar de último backup");
+        restaurarTorneo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                restaurarTorneoActionPerformed(evt);
+            }
+        });
+
+        restaurarJuego.setText("Restaurar de último backup");
+        restaurarJuego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                restaurarJuegoActionPerformed(evt);
+            }
+        });
+
+        backupGeneral.setText("Hacer backup de todos los datos");
+        backupGeneral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backupGeneralActionPerformed(evt);
+            }
+        });
+
+        restaurarGeneral.setText("Restaurar de último backup general");
+        restaurarGeneral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                restaurarGeneralActionPerformed(evt);
+            }
+        });
+
+        generarReporte.setText("Generar reporte");
+        generarReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generarReporteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -232,13 +310,13 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addComponent(añadirEmpresaButton)
+                .addGap(128, 128, 128)
+                .addComponent(backupEmpresa)
+                .addGap(118, 118, 118)
+                .addComponent(restaurarEmpresa)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(modificarEmpresaButton)
                 .addGap(35, 35, 35))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1043, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,6 +325,10 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(58, 58, 58)
                         .addComponent(añadirJuegoButton)
+                        .addGap(143, 143, 143)
+                        .addComponent(backupJuego)
+                        .addGap(146, 146, 146)
+                        .addComponent(restaurarJuego)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(modificarJuegoButton)
                         .addGap(32, 32, 32)))
@@ -255,14 +337,32 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(empresaLabel2)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 1043, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(59, 59, 59)
-                        .addComponent(añadirTorneoButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(modificarTorneoButton)
-                        .addGap(31, 31, 31))
-                    .addComponent(empresaLabel2)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 1043, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(backupGeneral)
+                                .addGap(205, 205, 205)
+                                .addComponent(generarReporte)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(restaurarGeneral))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(añadirTorneoButton)
+                                .addGap(139, 139, 139)
+                                .addComponent(backupTorneo)
+                                .addGap(141, 141, 141)
+                                .addComponent(restaurarTorneo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(modificarTorneoButton)))
+                        .addGap(31, 31, 31))))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1043, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -276,7 +376,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(modificarEmpresaButton)
-                    .addComponent(añadirEmpresaButton))
+                    .addComponent(añadirEmpresaButton)
+                    .addComponent(backupEmpresa)
+                    .addComponent(restaurarEmpresa))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(empresaLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -284,16 +386,26 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(añadirJuegoButton)
-                    .addComponent(modificarJuegoButton))
+                    .addComponent(modificarJuegoButton)
+                    .addComponent(backupJuego)
+                    .addComponent(restaurarJuego))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(empresaLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(añadirTorneoButton)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(añadirTorneoButton)
+                        .addComponent(backupTorneo)
+                        .addComponent(restaurarTorneo))
                     .addComponent(modificarTorneoButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(backupGeneral)
+                    .addComponent(restaurarGeneral)
+                    .addComponent(generarReporte))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -335,6 +447,56 @@ public class MainFrame extends javax.swing.JFrame {
         actualizarVentana(ingresarTorneoFrame);
     }//GEN-LAST:event_añadirTorneoButtonActionPerformed
 
+    private void backupJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backupJuegoActionPerformed
+        dbBackUp.exportTableToCSV("juego", backupPath + "\\juego.csv");
+    }//GEN-LAST:event_backupJuegoActionPerformed
+
+    private void backupTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backupTorneoActionPerformed
+       dbBackUp.exportTableToCSV("torneo", backupPath + "\\torneo.csv");
+    }//GEN-LAST:event_backupTorneoActionPerformed
+
+    private void restaurarTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restaurarTorneoActionPerformed
+        dbBackUp.importTableFromCSV("torneo",  backupPath + "\\torneo.csv");
+        llenarTablas();
+    }//GEN-LAST:event_restaurarTorneoActionPerformed
+
+    private void restaurarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restaurarJuegoActionPerformed
+        dbBackUp.importTableFromCSV("juego",  backupPath + "\\juego.csv");
+        llenarTablas();
+    }//GEN-LAST:event_restaurarJuegoActionPerformed
+
+    private void backupGeneralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backupGeneralActionPerformed
+        dbBackUp.exportTableToCSV("empresa", backupPath + "\\empresa.csv");
+        dbBackUp.exportTableToCSV("juego", backupPath + "\\juego.csv");
+        dbBackUp.exportTableToCSV("torneo", backupPath + "\\torneo.csv");
+    }//GEN-LAST:event_backupGeneralActionPerformed
+
+    private void restaurarGeneralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restaurarGeneralActionPerformed
+        dbBackUp.importTableFromCSV("empresa",  backupPath + "\\empresa.csv");
+        dbBackUp.importTableFromCSV("juego",  backupPath + "\\juego.csv");
+         dbBackUp.importTableFromCSV("torneo",  backupPath + "\\torneo.csv");
+         llenarTablas();
+    }//GEN-LAST:event_restaurarGeneralActionPerformed
+
+    private void backupEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backupEmpresaActionPerformed
+        dbBackUp.exportTableToCSV("empresa", backupPath + "\\empresa.csv");
+    }//GEN-LAST:event_backupEmpresaActionPerformed
+
+    private void restaurarEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restaurarEmpresaActionPerformed
+        dbBackUp.importTableFromCSV("empresa",  backupPath + "\\empresa.csv");
+        llenarTablas();
+    }//GEN-LAST:event_restaurarEmpresaActionPerformed
+
+    private void generarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarReporteActionPerformed
+        ReportGenerator reportGenerator = new ReportGenerator();
+
+        try {
+            reportGenerator.generarReportePDF(empresaControlador.listarEmpresas(), juegoControlador.listarJuegos(), torneoControlador.listarTorneos(), "C:\\Users\\joaqu\\Documents\\NetBeansProjects\\PixelArena\\reportes\\reporte.pdf");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_generarReporteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -374,9 +536,14 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton añadirEmpresaButton;
     private javax.swing.JButton añadirJuegoButton;
     private javax.swing.JButton añadirTorneoButton;
+    private javax.swing.JButton backupEmpresa;
+    private javax.swing.JButton backupGeneral;
+    private javax.swing.JButton backupJuego;
+    private javax.swing.JButton backupTorneo;
     private javax.swing.JLabel empresaLabel;
     private javax.swing.JLabel empresaLabel1;
     private javax.swing.JLabel empresaLabel2;
+    private javax.swing.JButton generarReporte;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -385,6 +552,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton modificarEmpresaButton;
     private javax.swing.JButton modificarJuegoButton;
     private javax.swing.JButton modificarTorneoButton;
+    private javax.swing.JButton restaurarEmpresa;
+    private javax.swing.JButton restaurarGeneral;
+    private javax.swing.JButton restaurarJuego;
+    private javax.swing.JButton restaurarTorneo;
     private javax.swing.JTable tablaEmpresas;
     private javax.swing.JTable tablaJuegos;
     private javax.swing.JTable tablaTorneos;

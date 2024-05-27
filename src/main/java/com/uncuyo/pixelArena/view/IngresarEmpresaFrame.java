@@ -197,7 +197,8 @@ public class IngresarEmpresaFrame extends javax.swing.JFrame {
 
     private void aceptarClicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarClicked
         textoAviso.setText(empresaControlador.crearEmpresa(textoNombre.getText(), textoEmail.getText(), textoNumTelefono.getText()));
-        
+        this.dispose();
+        this.setVisible(true);
     }//GEN-LAST:event_aceptarClicked
 
     private void textoNumTelefonoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textoNumTelefonoMouseEntered
